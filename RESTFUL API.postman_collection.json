@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "f68d7ae2-eb9c-48ab-9494-655b64265d46",
+		"name": "RESTFUL API FOR CRUD USERS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23037675"
+	},
+	"item": [
+		{
+			"name": "Get All User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// json value check\r",
+							"pm.test(\"Get all user Successfully\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/users/all",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User find",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Status condition check.\r",
+							"\r",
+							"pm.test(\"Get user Successfully\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"// console \r",
+							"const response=pm.response.json();\r",
+							"console.log(response);\r",
+							"console.log(response.status);\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/users/7264",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"7264"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Add New User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// json value check\r",
+							"pm.test(\"New user create Successfully\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// json value check\r",
+							"pm.test(\"New user create Successfully test 1.\", () => {\r",
+							"  const JsonData = pm.response.json();\r",
+							"  pm.expect(JsonData.message).to.eql(\"Insert new user success!\");\r",
+							"  \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"username\":\"Mahia\",\r\n\t\"name\":\"Mahia akter\",\r\n\t\"password\":\"70000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/users",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Single User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// json value check\r",
+							"pm.test(\"Update user info successfully\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n\t\"username\":\"Meow1\",\r\n\t\"name\":\"Sabbir\"\r\n\t\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}users/44144",
+					"host": [
+						"{{url}}users"
+					],
+					"path": [
+						"44144"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// json value check\r",
+							"pm.test(\"Delete user info successfully.\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/users/7194",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"7194"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
